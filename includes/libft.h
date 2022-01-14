@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2021/12/02 13:21:20 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/14 20:24:03 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -326,5 +326,11 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+# endif
+
+# ifndef FT_COUNT_DIGITS
+#  define FT_COUNT_DIGITS
+
+int		ft_count_digits(long int nb);
 # endif
 #endif
