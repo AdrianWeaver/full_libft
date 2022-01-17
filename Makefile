@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/01/14 20:22:34 by aweaver          ###   ########.fr        #
+#    Updated: 2022/01/17 22:21:41 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,7 @@ $(NAME):	$(OBJS)
 
 clean:	
 			rm -f $(OBJS)
+			rm -f $(DEP)
 
 fclean:		clean
 			rm -f $(NAME)
