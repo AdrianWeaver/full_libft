@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/01/18 09:50:05 by aweaver          ###   ########.fr        #
+#    Updated: 2022/01/19 10:58:49 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_strtrim.c		\
 				ft_split.c			\
 				ft_itoa.c			\
+				ft_itoa_base.c		\
 				ft_strmapi.c		\
 				ft_striteri.c		\
 				ft_putchar.c		\
@@ -64,7 +65,8 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_lstclear.c		\
 				ft_lstiter.c		\
 				ft_lstmap.c			\
-				ft_count_digits.c)	\
+				ft_count_digits.c	\
+				ft_count_digits_base.c)	\
 				$(addprefix $(GNL_PATH),\
 				get_next_line.c		\
 				get_next_line_utils.c)\

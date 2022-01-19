@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 10:01:56 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/19 10:57:46 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,6 +220,13 @@ char	**ft_split(char const *s, char c);
 #  define FT_ITOA_H
 
 char	*ft_itoa(int n);
+
+# endif
+
+# ifndef FT_ITOA_BASE
+#  define FT_ITOA_BASE
+
+char	*ft_itoa_base(int n, int base_len, char *base_format);
 
 # endif
 
