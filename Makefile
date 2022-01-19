@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/01/19 11:27:15 by aweaver          ###   ########.fr        #
+#    Updated: 2022/01/19 15:49:05 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_isascii.c		\
 				ft_isprint.c		\
 				ft_is_base_ok.c		\
+				ft_is_ubase_ok.c	\
 				ft_strlen.c			\
 				ft_memset.c			\
 				ft_bzero.c			\
@@ -47,6 +48,7 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_split.c			\
 				ft_itoa.c			\
 				ft_itoa_base.c		\
+				ft_uitoa_base.c		\
 				ft_strmapi.c		\
 				ft_striteri.c		\
 				ft_putchar.c		\
