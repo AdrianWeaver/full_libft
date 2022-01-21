@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/01/19 15:49:05 by aweaver          ###   ########.fr        #
+#    Updated: 2022/01/21 14:55:47 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,9 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_strmapi.c		\
 				ft_striteri.c		\
 				ft_putchar.c		\
+				ft_putchar_colour.c	\
 				ft_putstr.c			\
+				ft_putstr_colour.c	\
 				ft_putendl.c		\
 				ft_putnbr.c			\
 				ft_putchar_fd.c		\

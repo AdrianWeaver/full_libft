@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 15:49:32 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/21 14:57:05 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,27 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+# endif
+
+# ifndef FT_COLOURS
+#  define FT_COLOURS
+#  define BLACK "\30[0;31m"
+#  define RED "\31[0;31m"
+#  define GREEN "\32[0;32m"
+#  define YELLOW "\33[0;33m"
+#  define BLUE "\33[0;34m"
+#  define PINK "\33[0;35m"
+#  define TEAL "\33[0;36m"
+#  define WHITE "\33[0;37m"
+#  define BBLACK "\30[1;31m"
+#  define BRED "\31[1;31m"
+#  define BGREEN "\32[1;32m"
+#  define BYELLOW "\33[1;33m"
+#  define BBLUE "\33[1;34m"
+#  define BPINK "\33[1;35m"
+#  define BTEAL "\33[1;36m"
+#  define BWHITE "\33[1;37m"
+#  define NOCOLOUR "\33[0m"
 # endif
 
 # ifndef FT_ISALPHA_H
@@ -81,6 +102,12 @@ int		ft_is_ubase_ok(size_t base_len, char *base_format);
 
 size_t	ft_strlen(const char *s);
 
+# endif
+
+# ifndef FT_STRLEN_INT
+#  define FT_STRLEN_INT
+
+int		ft_strlen_int(char *s);
 # endif
 
 # ifndef FT_MEMSET_H
@@ -283,10 +310,25 @@ int		ft_putendl(char *s);
 int		ft_putstr(char *s);
 
 # endif
+
+# ifndef FT_PUTSTR_COLOUR
+#  define FT_PUTSTR_COLOUR
+
+int		ft_putstr_colour(char *s, char *colour);
+
+# endif
+
 # ifndef FT_PUTCHAR
 #  define FT_PUTCHAR
 
 int		ft_putchar(char c);
+
+# endif
+
+# ifndef FT_PUTCHAR_COLOUR
+#  define FT_PUTCHAR_COLOUR
+
+int		ft_putchar_colour(char c, char *colour);
 
 # endif
 
