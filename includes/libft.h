@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/21 14:57:05 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/24 07:28:00 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,13 @@ char	*ft_strrchr(const char *s, int c);
 #  define FT_STRNCMP_H
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
+# endif
+
+# ifndef FT_STRCMP
+#  define FT_STRCMP
+
+int		ft_strcmp(const char *s1, const char *s2);
 
 # endif
 

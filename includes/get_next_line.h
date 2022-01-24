@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:50:34 by aweaver           #+#    #+#             */
-/*   Updated: 2021/12/08 11:45:46 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/22 12:30:13 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # ifndef FT_STRJOIN
 #  define FT_STRJOIN
 
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin_free(char const *s1, char const *s2);
 
 # endif
 # ifndef FT_STRCHR
