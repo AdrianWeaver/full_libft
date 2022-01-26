@@ -6,13 +6,33 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:40:47 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/19 11:42:29 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 08:25:02 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 #include <stddef.h>
+
+static int	ft_count_digits_base(int nb, int base_len)
+{
+	int	digits;
+
+	digits = 1;
+	if (base_len < 1)
+		return (-1);
+	if (nb < 0)
+	{
+		digits++;
+		nb = -nb;
+	}
+	while (nb / base_len > 0)
+	{
+		nb = nb / base_len;
+		digits++;
+	}
+	return (digits);
+}
 
 static char	*ft_get_ptr(int digits, int base_len, char *base_format)
 {

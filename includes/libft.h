@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/24 07:28:00 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/01/26 08:27:27 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,6 @@ int		ft_isprint(int c);
 #  define FT_IS_BASE_OK
 
 int		ft_is_base_ok(int base_len, char *base_format);
-
-# endif
-
-# ifndef FT_IS_UBASE_OK
-#  define FT_IS_UBASE_OK
-
-int		ft_is_ubase_ok(size_t base_len, char *base_format);
 
 # endif
 
@@ -271,6 +264,20 @@ char	*ft_itoa(int n);
 
 # endif
 
+# ifndef FT_UTOA
+#  define FT_UTOA
+
+char	*ft_utoa(unsigned int n);
+
+# endif
+
+# ifndef FT_ULTOA
+#  define FT_ULTOA
+
+char	*ft_ultoa(size_t n);
+
+# endif
+
 # ifndef FT_ITOA_BASE
 #  define FT_ITOA_BASE
 
@@ -278,10 +285,18 @@ char	*ft_itoa_base(int n, int base_len, char *base_format);
 
 # endif
 
-# ifndef FT_UITOA_BASE
-#  define FT_UITOA_BASE
+# ifndef FT_UTOA_BASE
+#  define FT_UTOA_BASE
 
-char	*ft_uitoa_base(size_t n, size_t base_len, char *base_format);
+char	*ft_utoa_base(unsigned int n, unsigned int base_len,
+			char *base_format);
+
+# endif
+
+# ifndef FT_ULTOA_BASE
+#  define FT_ULTOA_BASE
+
+char	*ft_ultoa_base(size_t n, size_t base_len, char *base_format);
 
 # endif
 
@@ -436,10 +451,4 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_count_digits(long int nb);
 # endif
 
-# ifndef FT_COUNT_DIGITS_BASE
-#  define FT_COUNT_DIGITS_BASE
-
-int		ft_count_digits_base(long int nb, int base_len);
-
-# endif
 #endif
