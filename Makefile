@@ -6,15 +6,16 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/01/26 08:32:09 by aweaver          ###   ########.fr        #
+#    Updated: 2022/02/11 10:49:41 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libft.a
 
-LIBFT_PATH	=	./sources/libft/
-GNL_PATH	=	./sources/get_next_line/
-PRINTF_PATH	=	./sources/printf/
+SRCS_PATH 	=	./sources/
+LIBFT_PATH	=	./libft/
+GNL_PATH	=	./get_next_line/
+PRINTF_PATH	=	./ft_printf/
 
 SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_isalpha.c		\
@@ -79,20 +80,28 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				get_next_line.c		\
 				get_next_line_utils.c)\
 				$(addprefix $(PRINTF_PATH),\
-				ft_printf.c			\
-				ft_printf_putchar.c	\
-				ft_printf_putstr.c	\
-				ft_printf_putnbr.c	\
-				ft_printf_uhex.c	\
-				ft_printf_putnbr_base.c)
+				ft_lstreset.c				\
+				ft_printf_c.c				\
+				ft_printf_s.c				\
+				ft_printf_p.c 				\
+				ft_printf_u.c				\
+				ft_printf_x.c				\
+				ft_printf_o.c				\
+				ft_printf_id.c				\
+				ft_flag_hyphen.c			\
+				ft_printf_check_flags.c		\
+				ft_printf_parse.c			\
+				ft_printf.c)
 
-OBJS		=	$(SRCS:.c=.o)
+OBJS		=	$(addprefix $(OBJS_PATH),$(SRCS:.c=.o))
+
+OBJS_PATH	=	./objects/
 
 CC			=	gcc
 
 INC			=	-I ./includes
 
-DEP			=	$(SRCS:.c=.d)
+DEP			=	$(OBJS:.o=.d)
 
 CFLAGS		=	-MMD -Wall -Wextra -Werror
 
@@ -101,12 +110,15 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			ar -rcs $@ $^
 
-%.o:		%.c
+$(OBJS_PATH)%.o:		$(SRCS_PATH)%.c
+			@mkdir -p $(OBJS_PATH)
+			@mkdir -p $(OBJS_PATH)$(LIBFT_PATH)
+			@mkdir -p $(OBJS_PATH)$(GNL_PATH)
+			@mkdir -p $(OBJS_PATH)$(PRINTF_PATH)
 			$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 clean:	
-			rm -f $(OBJS)
-			rm -f $(DEP)
+			rm -rf $(OBJS_PATH)
 
 fclean:		clean
 			rm -f $(NAME)
