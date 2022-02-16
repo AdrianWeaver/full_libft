@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:50:34 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/16 11:01:23 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:23:16 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
+# endif
+
+# ifndef GNL_FLUSH
+#  define GNL_FLUSH -1
 # endif
 
 # ifndef GET_NEXT_LINE
