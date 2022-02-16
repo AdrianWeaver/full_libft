@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 16:11:32 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/22 12:29:40 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:01:46 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,7 @@
 #include "get_next_line.h"
 #include <stdio.h>
 #include <unistd.h>
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
-
-#endif
-
-int	ft_strlen_custom(char *memory)
-{
-	int	i;
-
-	i = 0;
-	if (*memory == 0)
-		return (0);
-	while (memory[i] != 0 && memory[i] != '\n')
-		i++;
-	if (memory[i] == '\n')
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 void	*ft_get_end(char *memory)
 {
@@ -52,7 +34,7 @@ void	*ft_getline(char *memory)
 	char	*line;
 
 	i = 0;
-	line = malloc(sizeof(*line) * ft_strlen_custom(memory) + 1);
+	line = malloc(sizeof(*line) * ft_strlen_nl(memory) + 1);
 	if (line == 0)
 		return (0);
 	while (memory[i] != '\n' && memory[i] != '\0')
@@ -116,26 +98,3 @@ char	*get_next_line(int fd)
 		free(buffer);
 	return (line);
 }
-
-//int	main(void)
-//{
-	//int		i;
-	//int		fd;
-	//char	*str;
-//
-	//i = 0;
-	//fd = open("tata.txt", O_RDONLY);
-	//printf("%d\n", fd);
-	//if (fd == -1)
-	//{
-		//printf("le fichier n'a pas pu etre ouvert");
-		//return (0);
-	//}
-	//do{
-		//str = get_next_line(fd);
-		//printf("%s", str);
-		//free(str);
-		//i++;
-	//} while (str);
-	//return (0);
-//}

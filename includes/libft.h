@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/26 08:39:13 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:05:08 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,14 @@ size_t	ft_strlen(const char *s);
 #  define FT_STRLEN_INT
 
 int		ft_strlen_int(char *s);
+
+# endif
+
+# ifndef FT_STRLEN_NL
+#  define FT_STRLEN_NL
+
+int		ft_strlen_nl(char *str);
+
 # endif
 
 # ifndef FT_MEMSET_H
@@ -131,10 +139,24 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 
 # endif
 
+# ifndef FT_STRCPY
+#  define FT_STRCPY
+
+char	*ft_strcpy(char *dest, const char *str);
+
+# endif
+
 # ifndef FT_STRLCPY_H
 #  define FT_STRLCPY_H
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+
+# endif
+
+# ifndef FT_STRCAT
+#  define FT_STRCAT
+
+char	*ft_strcat(char *dest, char *src);
 
 # endif
 
@@ -239,7 +261,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 # ifndef FT_STRJOIN_H
 #  define FT_STRJOIN_H
 
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
+
+# endif
+
+# ifndef FT_STRJOIN_FREE
+#  define FT_STRJOIN_FREE
+
+char	*ft_strjoin_free(char *s1, char *s2);
 
 # endif
 

@@ -6,14 +6,14 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:39:08 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/16 10:58:28 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:04:39 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str_joined;
 

@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/02/11 10:49:41 by aweaver          ###   ########.fr        #
+#    Updated: 2022/02/16 11:05:34 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,14 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_isprint.c		\
 				ft_is_base_ok.c		\
 				ft_strlen_int.c		\
+				ft_strlen_nl.c		\
 				ft_strlen.c			\
 				ft_memset.c			\
 				ft_bzero.c			\
 				ft_memcpy.c			\
 				ft_memmove.c		\
+				ft_strcpy.c			\
+				ft_strcat.c			\
 				ft_strlcpy.c		\
 				ft_strlcat.c		\
 				ft_toupper.c		\
@@ -46,6 +49,7 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_strdup.c			\
 				ft_substr.c			\
 				ft_strjoin.c		\
+				ft_strjoin_free.c	\
 				ft_strtrim.c		\
 				ft_split.c			\
 				ft_itoa.c			\
@@ -77,8 +81,7 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_lstmap.c			\
 				ft_count_digits.c)\
 				$(addprefix $(GNL_PATH),\
-				get_next_line.c		\
-				get_next_line_utils.c)\
+				get_next_line.c)		\
 				$(addprefix $(PRINTF_PATH),\
 				ft_lstreset.c				\
 				ft_printf_c.c				\
