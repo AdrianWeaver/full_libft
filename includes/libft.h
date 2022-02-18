@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/18 12:12:10 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:01:59 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,17 +237,17 @@ int		ft_atoi(const char *nptr);
 
 # endif
 
-# ifndef FT_CALLOC_H
-#  define FT_CALLOC_H
-
-void	*ft_calloc(size_t nmemb, size_t size);
-
-# endif
-
 # ifndef FT_REALLOC
 #  define FT_REALLOC
 
 void	*ft_realloc(void *ptr, size_t size);
+
+# endif
+
+# ifndef FT_CALLOC_H
+#  define FT_CALLOC_H
+
+void	*ft_calloc(size_t nmemb, size_t size);
 
 # endif
 

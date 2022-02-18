@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 16:11:32 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/18 12:45:14 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/02/16 22:32:36 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ char	*ft_make_magic(int fd, char buffer[BUFFER_SIZE + 1], int bytes_read)
 		memory = NULL;
 		return (0);
 	}
+	if (memory == 0)
+		memory = ft_strdup("");
 	while (bytes_read > 0 && ft_strchr(memory, '\n') == 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
@@ -96,7 +98,7 @@ char	*get_next_line(int fd)
 	if (line && *line == 0)
 	{
 		free(line);
-		return (NULL);
+		return(NULL);
 	}
 	return (line);
 }
