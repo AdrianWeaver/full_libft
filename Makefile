@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/02/16 11:05:34 by aweaver          ###   ########.fr        #
+#    Updated: 2022/02/18 12:12:46 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_strnstr.c		\
 				ft_atoi.c			\
 				ft_calloc.c			\
+				ft_realloc.c		\
 				ft_strdup.c			\
 				ft_substr.c			\
 				ft_strjoin.c		\
