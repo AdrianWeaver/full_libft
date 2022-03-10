@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/10 10:43:06 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/10 11:02:30 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		ft_is_base_ok(int base_len, char *base_format);
 # ifndef FT_ARRAY_SIZE
 #  define FT_ARRAY_SIZE
 
-int     ft_array_size(char **str);
+int		ft_array_size(char **str);
 
 # endif
 
