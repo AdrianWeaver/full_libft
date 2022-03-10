@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/18 13:01:59 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/10 10:43:06 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,13 @@ int		ft_isprint(int c);
 #  define FT_IS_BASE_OK
 
 int		ft_is_base_ok(int base_len, char *base_format);
+
+# endif
+
+# ifndef FT_ARRAY_SIZE
+#  define FT_ARRAY_SIZE
+
+int     ft_array_size(char **str);
 
 # endif
 
@@ -240,7 +247,7 @@ int		ft_atoi(const char *nptr);
 # ifndef FT_REALLOC
 #  define FT_REALLOC
 
-void	*ft_realloc(void *ptr, size_t size);
+void	*ft_realloc(void *ptr, size_t old_size, size_t size);
 
 # endif
 

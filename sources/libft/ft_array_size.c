@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_array_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 11:34:57 by aweaver           #+#    #+#             */
-/*   Updated: 2022/02/18 17:34:56 by aweaver          ###   ########.fr       */
+/*   Created: 2022/02/28 13:05:05 by aweaver           #+#    #+#             */
+/*   Updated: 2022/02/28 13:05:16 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
-
-void	*ft_realloc(void *ptr, size_t old_size, size_t size)
+int	ft_array_size(char **str)
 {
-	void	*dest_ptr;
+	int	i;
 
-	dest_ptr = malloc(size);
-	if (dest_ptr == NULL || size == 0)
-		return (NULL);
-	if (old_size > size)
-		old_size = size;
-	if (ptr != NULL && old_size != 0)
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
 	{
-		ft_memcpy(dest_ptr, ptr, old_size);
-		free(ptr);
+		i++;
 	}
-	return (dest_ptr);
-}	
+	return (i);
+}
