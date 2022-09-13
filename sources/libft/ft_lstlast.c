@@ -12,13 +12,12 @@
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *list)
 {
-	while (lst)
-	{
-		if (!lst->next)
-			return (lst);
+	t_list	*start;
+
+	start = list;
+	while (list->next && list->next != start)
 		lst = lst->next;
-	}
 	return (lst);
 }
