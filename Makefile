@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/05/09 11:30:46 by aweaver          ###   ########.fr        #
+#    Updated: 2022/09/19 16:11:29 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,7 +132,8 @@ clean:
 fclean:		clean
 			rm -f $(NAME)
 
-re:			fclean all
+re:			fclean
+			make all
 
 -include $(DEP)
 
