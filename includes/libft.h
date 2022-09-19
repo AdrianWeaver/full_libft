@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/09/19 16:12:07 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/09/19 16:17:10 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,13 @@ int		ft_isascii(int c);
 #  define FT_ISPRINT_H
 
 int		ft_isprint(int c);
+
+# endif
+
+# ifndef FT_ISPRINT_H
+#  define FT_ISPRINT_H
+
+int		ft_iswhitespace(int c);
 
 # endif
 
