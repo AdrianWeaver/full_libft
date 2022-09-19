@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/05/09 11:33:49 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/09/19 16:12:07 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -318,6 +318,13 @@ char	*ft_strtrim(char const *s1, char const *set);
 #  define FT_SPLIT_H
 
 char	**ft_split(char const *s, char c);
+
+# endif
+
+# ifndef FT_SPLIT_F_H
+#  define FT_SPLIT_F_H
+
+char	**ft_split(char const *s, int (*funct)(int arg));
 
 # endif
 

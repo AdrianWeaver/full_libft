@@ -57,6 +57,7 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_strjoin_free.c	\
 				ft_strtrim.c		\
 				ft_split.c			\
+				ft_split_f.c		\
 				ft_itoa.c			\
 				ft_utoa.c			\
 				ft_ultoa.c			\
