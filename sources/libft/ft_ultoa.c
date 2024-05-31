@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:57:01 by aweaver           #+#    #+#             */
-/*   Updated: 2022/01/25 17:15:37 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/05/31 17:25:56 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static int	ft_count_digit(long int n)
 	return (digits);
 }
 
-char	*ft_ultoa(unsigned long int n)
+char	*ft_ultoa(size_t n)
 {
-	unsigned long int	nbr;
+	size_t	nbr;
 	int					digits;
 	char				*ret;
 
