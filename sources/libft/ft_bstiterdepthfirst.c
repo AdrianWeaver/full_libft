@@ -6,13 +6,13 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:38:26 by aweaver           #+#    #+#             */
-/*   Updated: 2024/07/09 10:42:46 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/07/09 15:27:53 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bstiterdepthfirst(t_bst **head, void (*func)(t_bst *))
+void	ft_bstiterdepthfirst(t_bst **head, void (*func)(void *))
 {
 	if (!head || !(*head) || !func)
 		return ;

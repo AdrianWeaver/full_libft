@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2024/07/09 10:40:35 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/07/09 15:33:21 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -547,35 +547,35 @@ t_bst	*ft_bstnew(void *content);
 # ifndef FT_BSTINSERT
 #  define FT_BSTINSERT
 
-t_bst	*ft_bstinsert(t_bst **head, t_bst *new, int (*cmp)(t_bst*, t_bst*));
+t_bst	*ft_bstinsert(t_bst **head, t_bst *new, int (*cmp)(void*, void*));
 
 # endif
 
 # ifndef FT_BSTCLEAR
 #  define FT_BSTCLEAR
 
-void	ft_bstclear(t_bst **head, void(*del)(t_bst *));
+void	ft_bstclear(t_bst **head, void(*del)(void *));
 
 # endif
 
 # ifndef FT_BSTITER
 #  define FT_BSTITER
 
-void	ft_bstiter(t_bst **tree, void (*func)(t_bst *));
+void	ft_bstiter(t_bst **tree, void (*func)(void *));
 
 # endif
 
 # ifndef FT_BSTRITER
 #  define FT_BSTRITER
 
-void	ft_bstriter(t_bst **tree, void (*func)(t_bst *));
+void	ft_bstriter(t_bst **tree, void (*func)(void *));
 
 # endif
 
 # ifndef FT_BSTRITERDEPTHFIRST
 #  define FT_BSTRITERDEPTHFIRST
 
-void	ft_bstiterdepthfirst(t_bst **head, void (*func)(t_bst *));
+void	ft_bstiterdepthfirst(t_bst **head, void (*func)(void *));
 
 # endif
 
