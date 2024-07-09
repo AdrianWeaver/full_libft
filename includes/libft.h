@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2024/05/31 08:57:54 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/07/09 10:40:35 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_bst
+{
+	void			*content;
+	struct s_bst	*left;
+	struct s_bst	*right;
+}					t_bst;
 
 # endif
 
@@ -527,6 +534,49 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #  define FT_COUNT_DIGITS
 
 int		ft_count_digits(long int nb);
+
+# endif
+
+# ifndef FT_BSTNEW
+#  define FT_BSTNEW
+
+t_bst	*ft_bstnew(void *content);
+
+# endif
+
+# ifndef FT_BSTINSERT
+#  define FT_BSTINSERT
+
+t_bst	*ft_bstinsert(t_bst **head, t_bst *new, int (*cmp)(t_bst*, t_bst*));
+
+# endif
+
+# ifndef FT_BSTCLEAR
+#  define FT_BSTCLEAR
+
+void	ft_bstclear(t_bst **head, void(*del)(t_bst *));
+
+# endif
+
+# ifndef FT_BSTITER
+#  define FT_BSTITER
+
+void	ft_bstiter(t_bst **tree, void (*func)(t_bst *));
+
+# endif
+
+# ifndef FT_BSTRITER
+#  define FT_BSTRITER
+
+void	ft_bstriter(t_bst **tree, void (*func)(t_bst *));
+
+# endif
+
+# ifndef FT_BSTRITERDEPTHFIRST
+#  define FT_BSTRITERDEPTHFIRST
+
+void	ft_bstiterdepthfirst(t_bst **head, void (*func)(t_bst *));
+
 # endif
 
 #endif
