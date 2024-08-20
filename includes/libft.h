@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2024/08/20 09:39:00 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/08/20 11:34:00 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,18 @@
 # include <unistd.h>
 # include <stddef.h>
 
-# ifndef T_LIST_
-#  define T_LIST_
+# ifndef T_LIST
+#  define T_LIST
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+# endif
+# ifndef T_BST
+#  define T_BST
 
 typedef struct s_bst
 {
@@ -32,6 +36,10 @@ typedef struct s_bst
 	struct s_bst	*right;
 }					t_bst;
 
+#  ifndef DELETENODES
+#   define DELETENODES 1
+
+#  endif
 # endif
 
 # ifndef FT_COLOURS
@@ -575,7 +583,7 @@ void	ft_bstriter(t_bst **tree, void (*func)(void *));
 # ifndef FT_BSTRITERDEPTHFIRST
 #  define FT_BSTRITERDEPTHFIRST
 
-void	ft_bstiterdepthfirst(t_bst **head, void (*func)(void *));
+void	ft_bstiterdepthfirst(t_bst **head, void (*func)(void *), int delete);
 
 # endif
 

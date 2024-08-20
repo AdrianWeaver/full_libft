@@ -6,12 +6,13 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:51:41 by aweaver           #+#    #+#             */
-/*   Updated: 2024/08/20 09:37:05 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/08/20 14:37:39 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /*static t_bst *find_lowest_east_node(t_bst *subtree)
 {
@@ -28,17 +29,29 @@
 }
 */
 
-static t_bst	*ft_remove_fertile_node(t_bst **head, t_bst *parent,
-	t_bst *node, void (*del)(void *))
+static void	ft_remove_fertile_node(t_bst *node, void (*delcontent)(void *))
 {
-	(void)del;
-	(void)head;
-	(void)parent;
-	return (node);
+	t_bst	*heir_parent;
+	t_bst	*heir;
+
+	heir = node->right;
+	heir_parent = node;
+	while (heir && heir->left)
+	{
+		heir_parent = heir;
+		heir = heir->left;
+	}
+	(*delcontent)(node);
+	node->content = heir->content;
+	if (heir_parent == node)
+		heir_parent->right = heir->right;
+	else
+		heir_parent->left = heir->right;
+	free(heir);
 }
 
 void	ft_remove_node(t_bst **head, t_bst *parent, t_bst *node,
-	void (*del)(void *))
+	void (*delcontent)(void *))
 {
 	t_bst	*child_to_keep;
 
@@ -48,26 +61,24 @@ void	ft_remove_node(t_bst **head, t_bst *parent, t_bst *node,
 		child_to_keep = node->left;
 	else
 		child_to_keep = node->right;
-	if (parent == NULL)
-	{
+	if (node == *head)
 		*head = child_to_keep;
-		return ;
-	}
-	if (parent->right == node)
+	else if (parent->right == node)
 		parent->right = child_to_keep;
 	else
 		parent->left = child_to_keep;
-	del(node);
+	(*delcontent)(node);
+	free(node);
 	node = NULL;
 }
 
 void	ft_bstremove(t_bst **head, void *data_ref, int (*cmp)(),
-	void (*del)(void *))
+	void (*delcontent)(void *))
 {
 	t_bst	*node;
 	t_bst	*parent;
 
-	if (!head || !data_ref || !cmp || !del)
+	if (!head || !data_ref || !cmp || !delcontent)
 		return ;
 	parent = NULL;
 	node = *head;
@@ -82,9 +93,9 @@ void	ft_bstremove(t_bst **head, void *data_ref, int (*cmp)(),
 	if (node)
 	{
 		if (!(node->right) || !(node->left))
-			ft_remove_node(head, parent, node, del);
+			ft_remove_node(head, parent, node, delcontent);
 		else if (node->left && node->right)
-			ft_remove_fertile_node(head, parent, node, del);
+			ft_remove_fertile_node(node, delcontent);
 	}
 	return ;
 }
