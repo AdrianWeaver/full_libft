@@ -18,7 +18,7 @@ void	ft_bstriter(t_bst **tree, void (*func)(void *))
 	if (!tree || !*tree || !func)
 		return ;
 	ft_bstiter(&(*tree)->right, func);
-	(*func)((void *)*tree);
+	(*func)((*tree)->content);
 	ft_bstiter(&(*tree)->left, func);
 	return ;
 }
