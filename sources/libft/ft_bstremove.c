@@ -6,14 +6,15 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:51:41 by aweaver           #+#    #+#             */
-/*   Updated: 2024/08/20 14:37:39 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/09/27 15:14:22 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "t_bst.h"
 #include <stdio.h>
 #include <stdlib.h>
 
+//TODO: This is still in a development state
 /*static t_bst *find_lowest_east_node(t_bst *subtree)
 {
 	t_bst	*node;

@@ -6,11 +6,11 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 08:32:38 by aweaver           #+#    #+#             */
-/*   Updated: 2024/09/24 16:21:28 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/09/27 15:13:13 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "t_bst.h"
 #include <stdio.h>
 
 /*

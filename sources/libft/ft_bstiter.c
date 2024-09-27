@@ -6,12 +6,11 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 09:36:23 by aweaver           #+#    #+#             */
-/*   Updated: 2024/08/20 14:11:38 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/09/27 15:11:34 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "t_bst.h"
 
 void	ft_bstiter(t_bst **tree, void (*func)(void *))
 {

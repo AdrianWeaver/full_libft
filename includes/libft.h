@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2024/08/20 11:34:00 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/09/27 15:11:03 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stddef.h>
+# include "t_bst.h"
 
 # ifndef T_LIST
 #  define T_LIST
@@ -25,21 +26,6 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-# endif
-# ifndef T_BST
-#  define T_BST
-
-typedef struct s_bst
-{
-	void			*content;
-	struct s_bst	*left;
-	struct s_bst	*right;
-}					t_bst;
-
-#  ifndef DELETENODES
-#   define DELETENODES 1
-
-#  endif
 # endif
 
 # ifndef FT_COLOURS

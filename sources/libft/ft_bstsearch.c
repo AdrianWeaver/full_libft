@@ -6,11 +6,11 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 08:35:12 by aweaver           #+#    #+#             */
-/*   Updated: 2024/07/10 08:42:47 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/09/27 15:14:01 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "t_bst.h"
 
 t_bst	*ft_bstsearch(t_bst *tree, void *data, int (*cmp)(void *, void *))
 {
