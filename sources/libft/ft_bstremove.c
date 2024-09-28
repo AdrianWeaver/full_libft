@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:51:41 by aweaver           #+#    #+#             */
-/*   Updated: 2024/09/27 15:14:22 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/09/28 18:31:10 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,89 +14,161 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//TODO: This is still in a development state
-/*static t_bst *find_lowest_east_node(t_bst *subtree)
+static t_bst *find_lowest_east_node(t_bst *node)
 {
-	t_bst	*node;
-
-
-	node = subtree;
-	if (!subtree)
-		return ;
-	while (node->left)
-		node = node->left;
-	if (node = subtree
-
-}
-*/
-
-static void	ft_remove_fertile_node(t_bst *node, void (*delcontent)(void *))
-{
-	t_bst	*heir_parent;
 	t_bst	*heir;
+	t_bst	*heir_parent = node;
 
+	if (!node)
+		return (NULL);
 	heir = node->right;
-	heir_parent = node;
-	while (heir && heir->left)
+	if (!heir)
+		return (NULL);
+	while (heir->left)
 	{
 		heir_parent = heir;
 		heir = heir->left;
 	}
-	(*delcontent)(node);
-	node->content = heir->content;
-	if (heir_parent == node)
-		heir_parent->right = heir->right;
-	else
+	if (heir->right)
+	{
 		heir_parent->left = heir->right;
-	free(heir);
+		heir->right = NULL;
+	}
+	heir_parent->left = NULL;
+	return (heir);
 }
 
-void	ft_remove_node(t_bst **head, t_bst *parent, t_bst *node,
+static void	ft_remove_fertile_node(t_bst **head, t_bst *parent, t_bst *node, void (*delcontent)(void *))
+{
+	t_bst	*heir;
+
+	heir = find_lowest_east_node(node);
+	//if node to be deleted is head of tree
+	if (!parent)
+		*head = heir;
+	//reconnecting heir with upper tree.
+	else if (parent->right == node)
+		parent->right = heir;
+	else if (parent->left == node)
+		parent->left = heir;
+	//reconnecting heir with lower tree
+	if (node->right != heir)
+		heir->right = node->right;
+	heir->left = node->left;
+	(*delcontent)(node->content);
+	free(node);
+}
+
+static void	ft_remove_node(t_bst **head, t_bst *parent, t_bst *node,
 	void (*delcontent)(void *))
 {
-	t_bst	*child_to_keep;
+	t_bst	*heir;
 
-	if (!head)
-		return ;
 	if (node->left)
-		child_to_keep = node->left;
+		heir = node->left;
 	else
-		child_to_keep = node->right;
-	if (node == *head)
-		*head = child_to_keep;
+		heir = node->right;
+	//if node to be remove is the head of the tree
+	if (parent == NULL)
+		*head = heir;
 	else if (parent->right == node)
-		parent->right = child_to_keep;
-	else
-		parent->left = child_to_keep;
-	(*delcontent)(node);
+		parent->right = heir;
+	else if (parent->left == node)
+		parent->left = heir;
+	(*delcontent)(node->content);
 	free(node);
-	node = NULL;
 }
 
+/*
+ *	@brief this removes one node in the bst and assures that the bst
+ *	is still valid
+ *
+ *	@param head is the head of the bst
+ *	@param data_ref is a content, the node where the content is equal to this
+ *	is to be removed
+ *	@param cmp is the function used to sort the tree, it has to be the same one
+ *	used to insert new params
+ *
+ *	@delcontent is the function used to remove the CONTENT of the tree.
+*/
 void	ft_bstremove(t_bst **head, void *data_ref, int (*cmp)(),
 	void (*delcontent)(void *))
 {
 	t_bst	*node;
 	t_bst	*parent;
+	int		comparison_result;
 
 	if (!head || !data_ref || !cmp || !delcontent)
 		return ;
 	parent = NULL;
 	node = *head;
-	while (node && (*cmp)(data_ref, node->content))
+	if (!node)
+		return;
+	//searching the node through the tree
+	while (node)
 	{
+		comparison_result = (*cmp)(data_ref, node->content);
+		//node found removing it
+		if (comparison_result == 0)
+		{
+			if (!(node->right) || !(node->left))
+				ft_remove_node(head, parent, node, delcontent);
+			else if (node->left && node->right)
+				ft_remove_fertile_node(head, parent, node, delcontent);
+			return;
+		}
 		parent = node;
-		if ((*cmp)(data_ref, node->content) < 0)
+		//node to find might be to the right of the current node
+		if (comparison_result > 0)
 			node = node->right;
-		else if ((*cmp)(data_ref, node->content) > 0)
+		//node to find might be to the left of the current node
+		if (comparison_result < 0)
 			node = node->left;
 	}
-	if (node)
+}
+
+/*
+ *	@brief this removes one node in the bst and assures that the bst
+ *	is still valid
+ *
+ *	@param head is the head of the bst
+ *	@param node_address is the address of the node trying to be removed (see ft_bstsearch)
+ *	@param cmp is the function used to sort the tree, it has to be the same one
+ *	used to insert new params
+ *
+ *	@delcontent is the function used to remove the CONTENT of the tree.
+*/
+void	ft_bstremove_address(t_bst **head, t_bst *node_address, int (*cmp)(),
+	void (*delcontent)(void *))
+{
+	t_bst	*node;
+	t_bst	*parent;
+	int		comparison_result;
+
+	if (!head || !node_address || !cmp || !delcontent)
+		return ;
+	parent = NULL;
+	node = *head;
+	if (!node)
+		return;
+	//searching the node through the tree
+	while (node)
 	{
-		if (!(node->right) || !(node->left))
-			ft_remove_node(head, parent, node, delcontent);
-		else if (node->left && node->right)
-			ft_remove_fertile_node(node, delcontent);
+		if (node == node_address)
+		comparison_result = (*cmp)(node_address->content, node->content);
+		//node found removing it
+		if (comparison_result == 0)
+		{
+			if (!(node->right) || !(node->left))
+				ft_remove_node(head, parent, node, delcontent);
+			else if (node->left && node->right)
+				ft_remove_fertile_node(head, parent, node, delcontent);
+		}
+		//node to find might be to the right of the current node
+		if (comparison_result > 0)
+			node = node->right;
+		//node to find might be to the left of the current node
+		if (comparison_result < 0)
+			node = node->left;
 	}
-	return ;
 }
