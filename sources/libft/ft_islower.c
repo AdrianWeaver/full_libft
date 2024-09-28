@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 09:11:15 by aweaver           #+#    #+#             */
-/*   Updated: 2024/09/28 09:24:08 by aweaver          ###   ########.fr       */
+/*   Created: 2024/09/28 09:23:55 by aweaver           #+#    #+#             */
+/*   Updated: 2024/09/28 09:23:59 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+int	ft_islower(int c)
 {
-	if (ft_islower(c))
-		return (c - 32);
-	return (c);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	return (0);
 }

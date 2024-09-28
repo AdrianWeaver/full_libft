@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2024/09/27 15:11:03 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/09/28 09:26:13 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,20 @@ int		ft_abs(int nb);
 #  define FT_ISALPHA_H
 
 int		ft_isalpha(int c);
+
+# endif
+
+# ifndef FT_ISUPPER_H
+#  define FT_ISUPPER_H
+
+int		ft_isupper(int c);
+
+# endif
+
+# ifndef FT_ISLOWER_H
+#  define FT_ISLOWER_H
+
+int		ft_islower(int c);
 
 # endif
 

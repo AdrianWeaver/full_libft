@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2024/08/20 08:44:34 by aweaver          ###   ########.fr        #
+#    Updated: 2024/09/28 09:25:19 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ PRINTF_PATH	=	./ft_printf/
 SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_abs.c			\
 				ft_isalpha.c		\
+				ft_isupper.c		\
+				ft_islower.c		\
 				ft_isdigit.c		\
 				ft_isalnum.c		\
 				ft_isascii.c		\
