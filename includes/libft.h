@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2024/09/28 09:26:13 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/09/28 13:23:02 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -577,6 +577,13 @@ void	ft_bstiter(t_bst **tree, void (*func)(void *));
 #  define FT_BSTRITER
 
 void	ft_bstriter(t_bst **tree, void (*func)(void *));
+
+# endif
+
+# ifndef FT_BSTSEARCH
+#  define FT_BSTSEARCH
+
+t_bst	*ft_bstsearch(t_bst *tree, void *data, int (*cmp)(void *, void *));
 
 # endif
 

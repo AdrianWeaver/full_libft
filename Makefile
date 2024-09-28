@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2024/09/28 09:25:19 by aweaver          ###   ########.fr        #
+#    Updated: 2024/09/28 13:15:40 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,7 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_bstnew.c			\
 				ft_bstinsert.c		\
 				ft_bstclear.c		\
+				ft_bstsearch.c		\
 				ft_bstiter.c		\
 				ft_bstriter.c		\
 				ft_bstiterdepthfirst.c\
