@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:51:41 by aweaver           #+#    #+#             */
-/*   Updated: 2024/09/28 18:31:10 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/10/02 10:25:06 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,15 @@ static t_bst *find_lowest_east_node(t_bst *node)
 		heir_parent = heir;
 		heir = heir->left;
 	}
-	if (heir->right)
+	if (heir_parent != node)
 	{
-		heir_parent->left = heir->right;
-		heir->right = NULL;
+		if (heir->right)
+		{
+			heir_parent->left = heir->right;
+			heir->right = NULL;
+		}
+		heir_parent->left = NULL;
 	}
-	heir_parent->left = NULL;
 	return (heir);
 }
 
@@ -112,9 +115,14 @@ void	ft_bstremove(t_bst **head, void *data_ref, int (*cmp)(),
 		if (comparison_result == 0)
 		{
 			if (!(node->right) || !(node->left))
+			{
 				ft_remove_node(head, parent, node, delcontent);
+			}
 			else if (node->left && node->right)
+			{
 				ft_remove_fertile_node(head, parent, node, delcontent);
+				return ;
+			}
 			return;
 		}
 		parent = node;
@@ -160,9 +168,15 @@ void	ft_bstremove_address(t_bst **head, t_bst *node_address, int (*cmp)(),
 		if (comparison_result == 0)
 		{
 			if (!(node->right) || !(node->left))
+			{
 				ft_remove_node(head, parent, node, delcontent);
+				return ;
+			}
 			else if (node->left && node->right)
+			{
 				ft_remove_fertile_node(head, parent, node, delcontent);
+				return ;
+			}
 		}
 		//node to find might be to the right of the current node
 		if (comparison_result > 0)
