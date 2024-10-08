@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:51:41 by aweaver           #+#    #+#             */
-/*   Updated: 2024/10/02 10:25:06 by aweaver          ###   ########.fr       */
+/*   Updated: 2024/10/08 09:18:54 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 static t_bst *find_lowest_east_node(t_bst *node)
 {
-	t_bst	*heir;
+	t_bst	*heir = node->right;
 	t_bst	*heir_parent = node;
 
-	if (!node)
+	if (!node) //should always exist
 		return (NULL);
 	heir = node->right;
-	if (!heir)
+	if (!heir) //should always exist
 		return (NULL);
 	while (heir->left)
 	{
@@ -31,12 +31,8 @@ static t_bst *find_lowest_east_node(t_bst *node)
 	}
 	if (heir_parent != node)
 	{
-		if (heir->right)
-		{
-			heir_parent->left = heir->right;
-			heir->right = NULL;
-		}
-		heir_parent->left = NULL;
+		heir_parent->left = heir->right;
+		heir->right = NULL;
 	}
 	return (heir);
 }
